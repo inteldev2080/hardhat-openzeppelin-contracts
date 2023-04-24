@@ -1,8 +1,9 @@
 // hardhat.config.js
 require("@nomiclabs/hardhat-waffle");
-const fs = require('fs');
-const privateKey = fs.readFileSync(".secret").toString().trim() || "01234567890123456789";
-const infuraId = fs.readFileSync(".infuraid").toString().trim() || "";
+require('dotenv').config();
+
+const privateKey = process.env.PRIVATE_KEY || "01234567890123456789";
+const infuraId = process.env.INFURA_ID || "";
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
